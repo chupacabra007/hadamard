@@ -18,7 +18,7 @@ public:
  
     void find()
     {
-    	  while(true) {
+        while(true) {
     	      char **pm = new char *[4];
     	      setPermutationMatrix(pm);
     	      break;
@@ -35,18 +35,9 @@ private:
     {
         for (uchar i = 0; i < 4; ++i)
     	  {
-    	  	   arr[i] = new char[K];
+            arr[i] = new char[K];
             setPermutationRow(arr[i]);    	  
     	  }
-    	    	  
-        for (uchar k = 0; k < 4; ++k)
-        {
-            for (uchar l = 0; l < 4; ++l)
-            {
-                std::cout << arr[k][l] << " " ;
-            }
-            std::cout << std::endl;        
-        }
     }
     
     
@@ -57,8 +48,8 @@ private:
         
         for (uchar i = 0; i < K; ++i)
         {
-        	   row[i] = 1;
-        	   if (i > 0) {
+            row[i] = 1;
+            if (i > 0) {
                 indices.push_back(i);
             }
         }
@@ -66,7 +57,7 @@ private:
         
         for (uchar i = 0; i < num_of_negatives; ++i)
         {
-        	   row[indices.at(i)] = -1;    
+            row[indices.at(i)] = -1;    
         }
         
     } 
@@ -85,7 +76,7 @@ private:
 
 int main() 
 {
-	 Hadamard *m = new Hadamard(5);
-	 m->find();
+    Hadamard *m = new Hadamard(5);
+    m->find();
     return 0;
 }
