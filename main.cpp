@@ -19,9 +19,9 @@ public:
     void find()
     {
         while(true) {
-    	      char **pm = new char *[4];
-    	      setPermutationMatrix(pm);
-    	      break;
+            char **pm = new char *[4];
+            setPermutationMatrix(pm);
+            break;
         } 	  
     }    
     
@@ -34,10 +34,10 @@ private:
     void setPermutationMatrix(char **arr)
     {
         for (uchar i = 0; i < 4; ++i)
-    	  {
+        {
             arr[i] = new char[K];
             setPermutationRow(arr[i]);    	  
-    	  }
+        }
     }
     
     
@@ -49,7 +49,8 @@ private:
         for (uchar i = 0; i < K; ++i)
         {
             row[i] = 1;
-            if (i > 0) {
+            if (i > 0) 
+            {
                 indices.push_back(i);
             }
         }
