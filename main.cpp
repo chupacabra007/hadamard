@@ -97,35 +97,35 @@ private:
     
     void shiftIdentityMatrix(uchar **arr)
     {
-    	  bool one;
-    	  bool hit;
-    	  for (uchar i = 0; i < K; ++i)
+        bool one;
+    	bool hit;
+    	for (uchar i = 0; i < K; ++i)
         {
-        	   one = false;
-        	   hit = false;
-        	   for (uchar j = 0; j < K; ++j)
+            one = false;
+        	hit = false;
+        	for (uchar j = 0; j < K; ++j)
             {
-            	  if (j == 0 && arr[i][K-1] == 1)
-            	  {
-                     arr[i][0] = 1;
-                     continue;            	  
-            	  }
+                if (j == 0 && arr[i][K-1] == 1)
+                {
+                    arr[i][0] = 1;
+                    continue;            	  
+                }
             	  
-            	  if (!hit && arr[i][j] == 1)
-            	  {
-                     arr[i][j] = 0;
-                     one = true;
-                     continue;            	  
-            	  }
+            	if (!hit && arr[i][j] == 1)
+            	{
+                    arr[i][j] = 0;
+                    one = true;
+                    continue;            	  
+            	}
             	  
-            	  if (one)
-            	  {
-                     arr[i][j] = 1;
-                     one = false;
-                     hit = true;            	  
-            	  } else {
-                     arr[i][j] = 0;            	  
-            	  }
+            	if (one)
+            	{
+                    arr[i][j] = 1;
+                    one = false;
+                    hit = true;            	  
+            	} else {
+                    arr[i][j] = 0;            	  
+                }
             }        
         }
     }
