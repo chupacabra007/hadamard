@@ -24,21 +24,20 @@ public:
             
             uchar **imt = new uchar *[K];
             setIdentityMatrix(imt);            
-            printMatrix(imt, K, K);
+            //printMatrix(imt, K, K);
             
             shiftIdentityMatrix(imt);
-            printMatrix(imt, K, K);
+            //printMatrix(imt, K, K);
             
             uchar **imt2 = new uchar *[K];
             setIdentityMatrix(imt2);  
             
             sumMatrices(imt2, imt);
-            printMatrix(imt2, K, K);
+            //printMatrix(imt2, K, K);
             
             ushort **fmt = new ushort *[ORDER];
             setFinalMatrix(fmt);
-            printMatrix(fmt, ORDER, ORDER);    
-            
+            //printMatrix(fmt, ORDER, ORDER);    
             
             break;
         } 	  
@@ -183,12 +182,32 @@ private:
         } 
     }
     
+    
+    template <typename T>
+    void squareMatrix(T **arr, T **ret)
+    {
+        T val = 0;
+        for (uchar i = 0; i < K; ++i)
+        {
+            ret[i] = new T[K];
+            for (uchar j = 0; j < K; ++j)
+            {
+                val = 0;
+                for (uchar k = 0; k < K; ++k) 
+                {
+                    val += arr[i][k] * arr[k][j];                    
+                }
+                ret[i][j] = val;          
+            }
+        }
+    }
+    
 };
 
 
 int main() 
 {
-    Hadamard *m = new Hadamard(8);
+    Hadamard *m = new Hadamard(3);
     m->find();
     return 0;
 }
