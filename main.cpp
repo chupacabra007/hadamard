@@ -102,8 +102,8 @@ private:
     	for (uchar i = 0; i < K; ++i)
     	{
     	    one = false;
-        	hit = false;
-        	for (uchar j = 0; j < K; ++j)
+    	    hit = false;
+    	    for (uchar j = 0; j < K; ++j)
             {
                 if (j == 0 && arr[i][K-1] == 1)
                 {
