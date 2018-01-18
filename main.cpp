@@ -29,6 +29,17 @@ public:
             shiftIdentityMatrix(imt);
             printMatrix(imt, K, K);
             
+            uchar **imt2 = new uchar *[K];
+            setIdentityMatrix(imt2);  
+            
+            sumMatrices(imt2, imt);
+            printMatrix(imt2, K, K);
+            
+            ushort **fmt = new ushort *[ORDER];
+            setFinalMatrix(fmt);
+            printMatrix(fmt, ORDER, ORDER);    
+            
+            
             break;
         } 	  
     }    
@@ -145,12 +156,39 @@ private:
         std::cout << std::endl;   
     }
     
+    
+    template <typename T>
+    void sumMatrices(T **lmt, T **rmt)
+    {
+        for (uchar i = 0; i < K; ++i)
+        {
+            for (uchar j = 0; j < K; ++j)
+            {
+                lmt[i][j] = lmt[i][j] + rmt[i][j];           
+            }       
+        }    
+    }
+    
+    
+    void setFinalMatrix(ushort **arr)
+    {
+        ushort val = K * 4;
+        for (ushort i = 0; i < ORDER; ++i)
+        {
+            arr[i] = new ushort[ORDER];
+            for (ushort j = 0; j < ORDER; ++j)
+            {
+                arr[i][j] = (i == j) ? val : 0;         
+            }
+        } 
+    }
+    
 };
 
 
 int main() 
 {
-    Hadamard *m = new Hadamard(5);
+    Hadamard *m = new Hadamard(8);
     m->find();
     return 0;
 }
