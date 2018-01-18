@@ -100,8 +100,8 @@ private:
         bool one;
     	bool hit;
     	for (uchar i = 0; i < K; ++i)
-        {
-            one = false;
+    	{
+    	    one = false;
         	hit = false;
         	for (uchar j = 0; j < K; ++j)
             {
