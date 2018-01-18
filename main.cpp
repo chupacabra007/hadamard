@@ -35,9 +35,11 @@ public:
             sumMatrices(imt2, imt);
             //printMatrix(imt2, K, K);
             
-            ushort **fmt = new ushort *[ORDER];
-            setFinalMatrix(fmt);
-            //printMatrix(fmt, ORDER, ORDER);    
+            ushort **fmt = new ushort *[K];
+            setDiagonalMatrix(fmt, K * 4);
+            printMatrix(fmt, K, K);
+            
+            std::cout << matricesAreEqual(imt2, imt) << std::endl;    
             
             break;
         } 	  
@@ -168,14 +170,13 @@ private:
         }    
     }
     
-    
-    void setFinalMatrix(ushort **arr)
+    template <typename T>
+    void setDiagonalMatrix(ushort **arr, const T val)
     {
-        ushort val = K * 4;
-        for (ushort i = 0; i < ORDER; ++i)
+        for (ushort i = 0; i < K; ++i)
         {
-            arr[i] = new ushort[ORDER];
-            for (ushort j = 0; j < ORDER; ++j)
+            arr[i] = new ushort[K];
+            for (ushort j = 0; j < K; ++j)
             {
                 arr[i][j] = (i == j) ? val : 0;         
             }
@@ -200,6 +201,21 @@ private:
                 ret[i][j] = val;          
             }
         }
+    }
+    
+    
+    template <typename T>
+    bool matricesAreEqual(T **lmt, T **rmt)
+    {
+        for (uchar i = 0; i < K; ++i)
+        {
+            for (uchar j = 0; j < K; ++j)
+            {
+                if (lmt[i][j] != rmt[i][j])
+                    return false;            
+            }        
+        }        
+        return true;
     }
     
 };
